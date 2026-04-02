@@ -265,13 +265,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../getting_started/" class="md-tabs__link">
+      <a href="../../../../running_dbt_bouncer/" class="md-tabs__link">
         
   
   
     
   
-  Getting Started
+  Running dbt-bouncer
 
       </a>
     </li>
@@ -356,6 +356,28 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../migration/v3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Migration
+
+        </a>
+      </li>
+    
   
 
       
@@ -483,14 +505,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting_started/" class="md-nav__link">
+      <a href="../../../../running_dbt_bouncer/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
+    Running dbt-bouncer
   
 
     
@@ -1676,6 +1698,63 @@
   
   
   
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../migration/v3/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../../CONTRIBUTING/" class="md-nav__link">
         
@@ -1824,37 +1903,28 @@
 
       <p>Sources must have a populated loader.</p>
 
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>source</code>
-            </td>
-            <td>
-                  <code><span title="SourceNode">SourceNode</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>The SourceNode object to check.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
+<p><strong>Receives at execution time:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>source</code>        <td>
+              <code><span title="SourceNode">SourceNode</span></code>
+        </td>
+        <td>
+          <div class="doc-md-description">
+            <p>The SourceNode object to check.</p>
+          </div>
+        </td>
+      </tr>
+  </tbody>
+</table>
 <p><span class="doc-section-title">Other Parameters (passed via config file):</span></p>
 <table>
     <thead>
@@ -1943,7 +2013,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_source_loader_populated</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sources must have a populated loader.</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">    Parameters:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">    Receives:</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">        source (SourceNode): The SourceNode object to check.</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Other Parameters:</span>
