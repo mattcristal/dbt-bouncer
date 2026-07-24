@@ -67,7 +67,7 @@ All documentation can be found on `dbt-bouncer` [documentation website](https://
 
 ## Aims
 
-dbt-bouncer aims to:
+`dbt-bouncer` aims to:
 
 - Provide a **100% configurable** way to enforce conventions in a dbt project.
 - Be as **fast** as possible, running checks against dbt artifacts.
