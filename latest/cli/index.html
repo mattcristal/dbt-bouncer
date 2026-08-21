@@ -914,6 +914,73 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        explain
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="explain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Options
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-custom-checks-dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>--custom-checks-dir</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-output-format_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>--output-format</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        mcp
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1240,6 +1307,7 @@
 <li>YAML syntax errors with line numbers</li>
 <li>Missing required fields (like <code>name</code> in checks)</li>
 <li>Incorrect configuration types (e.g., if a check category is not a list)</li>
+<li>Everything <code>dbt-bouncer run</code> would reject: unknown keys, unknown check parameters, and mistyped parameter values — with a "Did you mean" suggestion for the closest valid name</li>
 </ul>
 <p>Example output for a valid config:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Config file is valid!
@@ -1247,7 +1315,7 @@
 <p>Example output for issues:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Found 2 issue(s) in config file:
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  Line 1: Check is missing required &#39;name&#39; field
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  Line 3: YAML syntax error: ...
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  Line 3: model_name_patern: Extra inputs are not permitted. Did you mean &#39;model_name_pattern&#39;?
 </span></code></pre></div>
 <h3 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h3>
 <h4 id="-config-file_1"><code>--config-file</code><a class="headerlink" href="#-config-file_1" title="Permanent link">#</a></h4>
@@ -1287,6 +1355,63 @@
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># List checks as JSON</span>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>dbt-bouncer<span class="w"> </span>list<span class="w"> </span>--output-format<span class="w"> </span>json
+</span></code></pre></div>
+<h2 id="explain">explain<a class="headerlink" href="#explain" title="Permanent link">#</a></h2>
+<p>The <code>explain</code> subcommand describes one check: what it does, its configurable parameters, and example usage. It works offline and does not need dbt artifacts:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>dbt-bouncer<span class="w"> </span>explain<span class="w"> </span>check_model_names
+</span></code></pre></div>
+<p>A check can be referenced by its name or by its rule code, so <code>dbt-bouncer explain MO038</code> shows the same output. An unknown name or code exits with code 2 (<code>CONFIG_ERROR</code>) and prints the closest match.</p>
+<p>Example output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>╭─ check_model_names (MO038) ─────────────────────────────────────╮
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│ Models must have a name that matches the supplied regex.        │
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>│ ...                                                             │
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>╰────────────────────────────────────────────────────── manifest ─╯
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>Parameters
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>╭─────────────────────┬──────┬──────────┬─────────╮
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>│ Name                │ Type │ Required │ Default │
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>├─────────────────────┼──────┼──────────┼─────────┤
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>│ model_name_pattern  │ str  │   yes    │ -       │
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>╰─────────────────────┴──────┴──────────┴─────────╯
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Documentation: https://godatadriven.github.io/dbt-bouncer/checks/manifest/models/naming/
+</span></code></pre></div>
+<h3 id="options_3">Options<a class="headerlink" href="#options_3" title="Permanent link">#</a></h3>
+<h4 id="-custom-checks-dir"><code>--custom-checks-dir</code><a class="headerlink" href="#-custom-checks-dir" title="Permanent link">#</a></h4>
+<p><strong>Type:</strong> Path
+<strong>Default:</strong> None
+<strong>Required:</strong> No</p>
+<p>Directory containing custom checks. When passed, custom checks can be explained too.</p>
+<h4 id="-output-format_2"><code>--output-format</code><a class="headerlink" href="#-output-format_2" title="Permanent link">#</a></h4>
+<p><strong>Type:</strong> Choice
+<strong>Options:</strong> <code>json</code>, <code>text</code>
+<strong>Default:</strong> <code>text</code>
+<strong>Required:</strong> No</p>
+<p>Controls the output format. Use <code>json</code> for machine-readable output.</p>
+<p><strong>Example:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>dbt-bouncer<span class="w"> </span>explain<span class="w"> </span>check_model_names<span class="w"> </span>--output-format<span class="w"> </span>json
+</span></code></pre></div>
+<h2 id="mcp">mcp<a class="headerlink" href="#mcp" title="Permanent link">#</a></h2>
+<p>The <code>mcp</code> subcommand starts a <a href="https://modelcontextprotocol.io">Model Context Protocol</a> server on the stdio transport:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>dbt-bouncer<span class="w"> </span>mcp
+</span></code></pre></div>
+<p>This lets AI coding agents (Claude Code, Cursor, etc.) query and run dbt-bouncer. The server exposes four tools:</p>
+<ul>
+<li><code>read_project_config</code>: Read and validate the project's config file. The agent learns which conventions the project enforces before it generates dbt code.</li>
+<li><code>list_checks</code>: List all available checks, grouped by category.</li>
+<li><code>explain_check</code>: Explain one check by name or rule code: description, parameters, and example usage.</li>
+<li><code>run_checks</code>: Run the configured checks against the project's dbt artifacts. This requires at minimum a <code>manifest.json</code> (from <code>dbt parse</code>).</li>
+</ul>
+<p>The command requires the optional <code>mcp</code> dependency:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;dbt-bouncer[mcp]&#39;</span>
+</span></code></pre></div>
+<p>Example client configuration (Claude Code, <code>.mcp.json</code>):</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="nt">&quot;dbt-bouncer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dbt-bouncer&quot;</span><span class="p">,</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="exit-codes">Exit codes<a class="headerlink" href="#exit-codes" title="Permanent link">#</a></h2>
 <p><code>dbt-bouncer</code> returns distinct exit codes so that CI pipelines and scripts can tell a check failure apart from a setup problem:</p>
