@@ -24,7 +24,7 @@
 | src/dbt\_bouncer/checks/info\_schema/query.py               |       12 |        0 |        2 |        0 |     100% |           |
 | src/dbt\_bouncer/checks/info\_schema/sources.py             |       11 |        0 |        4 |        0 |     100% |           |
 | src/dbt\_bouncer/checks/manifest/check\_exposures.py        |       50 |        0 |       24 |        0 |     100% |           |
-| src/dbt\_bouncer/checks/manifest/check\_lineage.py          |       20 |        0 |        6 |        0 |     100% |           |
+| src/dbt\_bouncer/checks/manifest/check\_lineage.py          |       37 |        0 |       16 |        0 |     100% |           |
 | src/dbt\_bouncer/checks/manifest/check\_macros.py           |      138 |        0 |       72 |        0 |     100% |           |
 | src/dbt\_bouncer/checks/manifest/check\_metadata.py         |       10 |        0 |        2 |        0 |     100% |           |
 | src/dbt\_bouncer/checks/manifest/check\_seeds.py            |       40 |        0 |       12 |        0 |     100% |           |
@@ -71,12 +71,12 @@
 | src/dbt\_bouncer/cli/studio/\_\_init\_\_.py                 |       31 |        0 |       10 |        0 |     100% |           |
 | src/dbt\_bouncer/cli/studio/utils.py                        |      143 |        0 |       68 |        0 |     100% |           |
 | src/dbt\_bouncer/cli/utils.py                               |        5 |        0 |        0 |        0 |     100% |           |
-| src/dbt\_bouncer/cli/validate/\_\_init\_\_.py               |       28 |        0 |        8 |        0 |     100% |           |
+| src/dbt\_bouncer/cli/validate/\_\_init\_\_.py               |       32 |        0 |        8 |        0 |     100% |           |
 | src/dbt\_bouncer/configuration\_file/\_\_init\_\_.py        |        0 |        0 |        0 |        0 |     100% |           |
 | src/dbt\_bouncer/configuration\_file/parser.py              |       57 |        0 |       10 |        0 |     100% |           |
 | src/dbt\_bouncer/configuration\_file/validator.py           |      462 |        0 |      186 |        0 |     100% |           |
 | src/dbt\_bouncer/context.py                                 |       62 |        0 |        0 |        0 |     100% |           |
-| src/dbt\_bouncer/enums.py                                   |      233 |        0 |        0 |        0 |     100% |           |
+| src/dbt\_bouncer/enums.py                                   |      234 |        0 |        0 |        0 |     100% |           |
 | src/dbt\_bouncer/exceptions.py                              |        6 |        0 |        0 |        0 |     100% |           |
 | src/dbt\_bouncer/executor.py                                |       53 |        0 |       16 |        0 |     100% |           |
 | src/dbt\_bouncer/main.py                                    |       33 |        0 |        8 |        0 |     100% |           |
@@ -94,7 +94,7 @@
 | src/dbt\_bouncer/types.py                                   |       19 |        0 |        4 |        0 |     100% |           |
 | src/dbt\_bouncer/utils.py                                   |      392 |        0 |      152 |        0 |     100% |           |
 | src/dbt\_bouncer/version.py                                 |        2 |        0 |        0 |        0 |     100% |           |
-| **TOTAL**                                                   | **5259** |    **0** | **1776** |    **0** | **100%** |           |
+| **TOTAL**                                                   | **5281** |    **0** | **1786** |    **0** | **100%** |           |
 
 
 ## Setup coverage badge
